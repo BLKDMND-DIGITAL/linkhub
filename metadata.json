@@ -1,0 +1,5 @@
+{
+  "name": "BLKDMND | Link Hub",
+  "description": "A dynamic 'link in bio' application that displays a user's profile, links, and social media presence based on a JSON configuration. One hub for Black Diamond District — content, shop, bookings.",
+  "requestFramePermissions": []
+}

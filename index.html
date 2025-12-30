@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLKDMND | District Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              accent: '#EC9D34',
+              background: '#0A0A0A',
+              content: '#FFFFFF',
+            },
+            fontFamily: {
+              heading: ['Inter', 'sans-serif'],
+              body: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            animation: {
+              'float': 'float 20s infinite linear',
+              'shine': 'shine 3s infinite',
+              'scan': 'scan 4s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%': { transform: 'translate(0, 0) rotate(0deg)', opacity: 0 },
+                '10%': { opacity: 0.3 },
+                '90%': { opacity: 0.3 },
+                '100%': { transform: 'translate(100px, -1000px) rotate(360deg)', opacity: 0 },
+              },
+              shine: {
+                '0%': { left: '-100%' },
+                '20%': { left: '100%' },
+                '100%': { left: '100%' },
+              },
+              scan: {
+                '0%': { top: '-5%' },
+                '100%': { top: '105%' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0A0A0A;
+        overflow-x: hidden;
+      }
+      .metallic-button {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #FFD08A 0%, #EC9D34 45%, #B86B00 100%);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 
+          0 4px 15px rgba(236, 157, 52, 0.4),
+          inset 0 1px 1px rgba(255, 255, 255, 0.6),
+          inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .metallic-button::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -100%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+        transform: rotate(35deg);
+        transition: 0.7s;
+        pointer-events: none;
+      }
+      .metallic-button:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(236, 157, 52, 0.6);
+      }
+      .metallic-button:hover::after {
+        left: 100%;
+      }
+      .metallic-button:active {
+        transform: translateY(0) scale(0.98);
+      }
+      .outline-metallic {
+        background: rgba(10, 10, 10, 0.8);
+        border: 2px solid #EC9D34;
+        color: #EC9D34;
+        box-shadow: 0 0 10px rgba(236, 157, 52, 0.2);
+      }
+      .outline-metallic:hover {
+        background: #EC9D34;
+        color: #0A0A0A;
+      }
+      .bg-grid-glow {
+        background-image: radial-gradient(circle at 2px 2px, rgba(236, 157, 52, 0.05) 1px, transparent 0);
+        background-size: 40px 40px;
+      }
+      .floating-element {
+        position: absolute;
+        pointer-events: none;
+        user-select: none;
+        color: #EC9D34;
+        filter: blur(1px);
+        font-family: 'JetBrains Mono', monospace;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
