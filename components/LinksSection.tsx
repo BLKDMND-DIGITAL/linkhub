@@ -43,7 +43,7 @@ const LinkItem: React.FC<{ link: Link; theme: Theme; onClick: (link: Link) => vo
   const buttonShapeClass = theme.button_shape === 'rounded' ? 'rounded-xl' :
                            theme.button_shape === 'pill' ? 'rounded-full' : 'rounded-none';
 
-  const baseClasses = `w-full flex items-center justify-center p-5 text-center font-black uppercase tracking-widest text-sm transition-all duration-300 ${buttonShapeClass}`;
+  const baseClasses = `w-full flex items-center justify-center p-4 text-center font-black uppercase tracking-widest text-sm transition-all duration-300 ${buttonShapeClass}`;
   
   const styleClasses = {
     solid: 'metallic-button text-background',
@@ -57,7 +57,7 @@ const LinkItem: React.FC<{ link: Link; theme: Theme; onClick: (link: Link) => vo
       <div className="absolute left-0">
         <Icon name={link.icon} className="w-5 h-5" />
       </div>
-      <span className="mx-auto">{link.label}</span>
+      <span className="mx-auto text-xs sm:text-sm">{link.label}</span>
       {link.style === 'solid' && (
         <div className="absolute right-0 opacity-20">
           <Icon name="share" className="w-4 h-4" />
@@ -113,30 +113,38 @@ const LinksSection: React.FC<LinksSectionProps> = ({ links, theme, title, defaul
 
   return (
     <>
-      <div className="w-full flex flex-col space-y-4">
+      <div className="w-full flex flex-col">
         {title && (
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full group flex items-center justify-between mb-2 focus:outline-none"
+            className="w-full group flex items-center justify-between mb-4 px-2 focus:outline-none"
           >
             <div className="flex items-center space-x-3">
-              <div className="w-1 h-6 bg-accent rounded-full group-hover:h-8 transition-all duration-300"></div>
-              <span className="text-xs font-black tracking-[0.3em] text-accent uppercase font-mono">
+              <div className={`w-1 h-4 bg-accent rounded-full transition-all duration-300 ${isOpen ? 'h-6' : 'opacity-40'}`}></div>
+              <span className={`text-[10px] font-black tracking-[0.4em] uppercase font-mono transition-colors duration-300 ${isOpen ? 'text-accent' : 'text-accent/60'}`}>
                 {title}
               </span>
             </div>
-            <div className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-accent/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+            <div className={`transform transition-all duration-300 ${isOpen ? 'rotate-180 opacity-100' : 'opacity-40'}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M19 9l-7 7-7-7" />
               </svg>
             </div>
           </button>
         )}
         
-        <div className={`grid grid-cols-1 gap-4 transition-all duration-500 origin-top ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-          {links.map((link, index) => (
-            <LinkItem key={index} link={link} theme={theme} onClick={handleLinkClick} />
-          ))}
+        <div className={`transition-all duration-500 origin-top overflow-hidden ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="bg-zinc-900/40 dark:bg-zinc-900/40 light:bg-white border border-white/5 dark:border-white/5 light:border-accent/10 rounded-[2rem] p-5 sm:p-6 mb-6 shadow-inner relative group transition-colors duration-500">
+            {/* Subtle corner accents */}
+            <div className="absolute top-4 left-4 w-1 h-1 bg-accent/20 rounded-full group-hover:bg-accent/40 transition-colors"></div>
+            <div className="absolute bottom-4 right-4 w-1 h-1 bg-accent/20 rounded-full group-hover:bg-accent/40 transition-colors"></div>
+            
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 relative z-10">
+              {links.map((link, index) => (
+                <LinkItem key={index} link={link} theme={theme} onClick={handleLinkClick} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       <QRCodeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} data={qrCodeData} />

@@ -29,10 +29,10 @@ const ProfileSection: React.FC<ProfileSectionProps> = ({ profile }) => {
         <img
           src={profile.avatar_url}
           alt={profile.name}
-          className="w-20 h-20 rounded-full object-cover border-4 border-accent shadow-2xl transition-transform duration-500 group-hover:rotate-12"
+          className="w-32 h-32 rounded-full object-cover border-4 border-accent shadow-2xl transition-transform duration-500 group-hover:scale-105 group-hover:rotate-6"
         />
-        <div className="absolute -bottom-2 -right-2 bg-accent text-background p-1.5 rounded-full border-2 border-background">
-          <Icon name="share" className="w-3 h-3" />
+        <div className="absolute -bottom-1 -right-1 bg-accent text-background p-2 rounded-full border-2 border-background shadow-lg">
+          <Icon name="share" className="w-4 h-4" />
         </div>
       </div>
       

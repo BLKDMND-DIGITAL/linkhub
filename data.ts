@@ -1,13 +1,13 @@
 import { type Config } from './types';
 
 export const config: Config = {
-  "version": "1.1",
+  "version": "1.5",
   "meta": {
     "title": "BLKDMND | DISTRICT",
-    "description": "Black Diamond District Tactical Interface. AI, Film, Outdoor Athletics.",
+    "description": "Black Diamond District Tactical Interface. AI, Media, Outdoor Nature.",
     "theme": {
       "accent": "#EC9D34",
-      "background": "#0A0A0A",
+      "background": "#0D0D0D",
       "text": "#FFFFFF",
       "button_shape": "rounded",
       "elevated_cards": true
@@ -19,8 +19,8 @@ export const config: Config = {
   },
   "profile": {
     "name": "BLKDMND",
-    "tagline": "AI • FILM • ATHLETICS",
-    "avatar_url": "https://i.imgur.com/BjsancZ.png",
+    "tagline": "AI • MEDIA • NATURE",
+    "avatar_url": "https://i.imgur.com/l1IYvuy.png",
     "badge": "PROTOCOL V.1.0"
   },
   "hero": {
@@ -32,6 +32,11 @@ export const config: Config = {
       "url": "https://www.youtube.com/watch?v=TF06nUzToNk",
       "style": "primary"
     }
+  },
+  "music": {
+    "url": "https://cdn.pixabay.com/audio/2022/10/25/audio_5179471f4b.mp3",
+    "enabled": false,
+    "autoplay": false
   },
   "brochart": {
     "show": true,
@@ -92,13 +97,11 @@ export const config: Config = {
       "category": "NETWORK"
     },
     {
-      "label": "Secure Email Comms",
-      "url": "#",
+      "label": "Direct Signal: Email",
+      "url": "mailto:g.dukes1@gmail.com",
       "icon": "mail",
       "style": "outline",
       "enabled": true,
-      "action": "show_qr",
-      "qr_content": "mailto:g.dukes1@gmail.com",
       "category": "INQUIRIES"
     }
   ],

@@ -1,4 +1,4 @@
-export type IconName = 'tiktok' | 'globe' | 'shopping_bag' | 'calendar' | 'mail' | 'youtube' | 'instagram' | 'x' | 'film' | 'book' | 'share' | 'download';
+export type IconName = 'tiktok' | 'globe' | 'shopping_bag' | 'calendar' | 'mail' | 'youtube' | 'instagram' | 'x' | 'film' | 'book' | 'share' | 'download' | 'music' | 'pause' | 'sun' | 'moon';
 export type SocialPlatform = 'youtube' | 'instagram' | 'x';
 
 export interface Theme {
@@ -65,6 +65,12 @@ export interface Footer {
     brandmark_url: string;
 }
 
+export interface MusicConfig {
+  url: string;
+  enabled: boolean;
+  autoplay: boolean;
+}
+
 export interface Config {
   version: string;
   meta: {
@@ -82,6 +88,7 @@ export interface Config {
   links: Link[];
   socials: Social[];
   footer: Footer;
+  music: MusicConfig;
   analytics: {
     tiktok_pixel_id: string;
     google_analytics_id: string;
